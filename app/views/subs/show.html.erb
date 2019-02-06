@@ -1,0 +1,26 @@
+<li> Title: <%= @sub.title%> </li>
+<ul>
+  <li> Moderator: <%= User.find(@sub.user_id).username %> </li>
+  <li> Description: <%= @sub.description%> </li>
+</ul>
+
+<form action="<%= edit_sub_url(@sub) %>">
+  <input type="submit" value="Edit Sub">
+</form>
+
+  <% @sub.posts.each do |post| %>
+    <h3><%= post.title %></h3>
+    <ul>
+      <li><%= post.url %></li>
+      <li><%= post.content %></li>
+    </ul><br>
+    <form action="<%= edit_sub_post_url(@sub, post) %>">
+      <input type="submit" value="Edit Post">
+    </form><br>
+  <% end %>
+
+
+<form action="<%= new_sub_post_url(@sub) %>">
+  <input type="submit" value="New Post">
+</form>
+

@@ -1,0 +1,7 @@
+<% @subs.each do |sub| %>
+  <ul>
+  <li> Moderator: <%= User.find(sub.user_id).username %> </li>
+  <li> Title: <%= sub.title%> </li>
+  <li> Description: <%= sub.description%> </li>
+  </ul>
+<%end%>
